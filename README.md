@@ -1,4 +1,4 @@
-# 🏭 Implementação do Padrão Factory nos Controllers
+# 🏭 Implementação do Padrão Factory nos Controllers (CRIACIONAL)
 
 ## 📌 FEITO
 Refatoramento dos controllers `ContactController` e `LeadController` utilizando o **Padrão Factory** para:
@@ -30,9 +30,9 @@ Refatoramento dos controllers `ContactController` e `LeadController` utilizando 
 
 
 .........
-# 🎛️ Implementação do Padrão Command nos Controllers
+# 🎛️ Implementação do Padrão Command nos Controllers (COMPORTAMENTAL)
 
-## 📌 Status: **Concluído**
+## 📌 FEITO
 
 Refatoramos o `SalesPipelineController` utilizando o **Padrão Command** com os seguintes objetivos:
 
@@ -81,9 +81,9 @@ controller.execute_command('add')  # Executa AddOpportunityCommand
 
 
 
-# 🛠️ Implementação do Padrão Decorator nos Controllers
+# 🛠️ Implementação do Padrão Decorator nos Controllers  (ESTRUTURAL)
 
-## 📌 O QUE FOI IMPLEMENTADO
+## 📌 FEITO
 
 ### 🔧 Mecanismo de Decorators
 ```python
