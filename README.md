@@ -1,6 +1,9 @@
 # 🏭 Implementação do Padrão Factory nos Controllers (CRIACIONAL)
 
 ## 📌 FEITO
+onde encontrar:
+módulo contact no controller, módulo lead no controller e módulo factories
+
 Refatoramento dos controllers `ContactController` e `LeadController` utilizando o **Padrão Factory** para:
 - Centralizar a criação de objetos
 - Encapsular regras de validação
@@ -33,6 +36,8 @@ Refatoramento dos controllers `ContactController` e `LeadController` utilizando 
 # 🎛️ Implementação do Padrão Command nos Controllers (COMPORTAMENTAL)
 
 ## 📌 FEITO
+onde encontrar:
+módulo SalesPipelineController no controller e módulo commands
 
 Refatoramos o `SalesPipelineController` utilizando o **Padrão Command** com os seguintes objetivos:
 
@@ -84,17 +89,23 @@ controller.execute_command('add')  # Executa AddOpportunityCommand
 # 🛠️ Implementação do Padrão Decorator nos Controllers  (ESTRUTURAL)
 
 ## 📌 FEITO
+Onde encontrar: 
+campaign_controller no módulo Controller
 
 ### 🔧 Mecanismo de Decorators
 ```python
 # Exemplo de implementação do decorator
-def log_operation(func):
+def validate_campaign_exists(func):
     @wraps(func)
-    def wrapper(*args, **kwargs):
-        print(f"Iniciando {func.__name__}")
-        result = func(*args, **kwargs)
-        print(f"Finalizando {func.__name__}")
-        return result
+    def wrapper(self, *args, **kwargs):
+        name = self.view.get_campaign_name()
+        campaign = self.repository.get(name)
+        
+        if not campaign:
+            self.view.show_message('Campaign not found.')
+            return None
+            
+        return func(self, campaign, *args, **kwargs)  # Injeta o objeto campaign
     return wrapper
 ```
 
